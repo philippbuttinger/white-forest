@@ -1,0 +1,42 @@
+/* White Forest — Typography
+   Display: Cormorant Garamond (refined high-contrast serif — headlines, wordmark)
+   Sans:    Jost (geometric humanist — UI, labels, body, tracked caps)
+   Fonts are loaded via Google Fonts in fonts.css.
+   NOTE: self-hosted binaries are not bundled — see readme "Font substitution". */
+
+:root {
+  --font-serif: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-sans:  "Jost", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Type scale — editorial, generous. rem based on 16px root. */
+  --fs-display-xl: 5.25rem;  /* 84px — hero */
+  --fs-display-l:  3.75rem;  /* 60px */
+  --fs-display-m:  2.75rem;  /* 44px */
+  --fs-heading-l:  2rem;     /* 32px */
+  --fs-heading-m:  1.5rem;   /* 24px */
+  --fs-heading-s:  1.25rem;  /* 20px */
+  --fs-body-l:     1.125rem; /* 18px */
+  --fs-body-m:     1rem;     /* 16px */
+  --fs-body-s:     0.875rem; /* 14px */
+  --fs-caption:    0.8125rem;/* 13px */
+  --fs-overline:   0.6875rem;/* 11px — tracked label */
+
+  /* Weights */
+  --fw-light: 300; /* @kind other */
+  --fw-regular: 400; /* @kind other */
+  --fw-medium: 500; /* @kind other */
+  --fw-semibold: 600; /* @kind other */
+
+  /* Line heights */
+  --lh-tight: 1.04; /* @kind other */
+  --lh-snug: 1.2; /* @kind other */
+  --lh-normal: 1.5; /* @kind other */
+  --lh-relaxed: 1.7; /* @kind other */
+
+  /* Letter spacing */
+  --ls-display: -0.02em; /* @kind other */  /* serif display — slight negative */
+  --ls-normal: 0em; /* @kind other */
+  --ls-wide: 0.08em; /* @kind other */
+  --ls-overline: 0.22em; /* @kind other */  /* tracked all-caps labels */
+}

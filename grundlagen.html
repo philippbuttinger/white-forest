@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#F3F1EA;color:#1E2623;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#1E2623}a:hover{color:#B99A5B}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;letter-spacing:-.02em;margin:0}
+p{margin:0}
+.gp-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr) minmax(0,1.3fr) minmax(0,1fr);gap:12px;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(30,38,35,.1)}
+.gp-srow{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,.6fr) minmax(0,2fr);gap:12px;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(30,38,35,.1)}
+.gp-mrow{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:16px;padding:14px 0;border-top:1px solid rgba(30,38,35,.1)}
+.gp-lab{display:none}
+@media(max-width:600px){
+  .gp-head{display:none!important}
+  .gp-row{grid-template-columns:minmax(0,1fr) auto;row-gap:4px;padding:14px 0}
+  .gp-row .gp-c-a{grid-column:1;grid-row:1}
+  .gp-row .gp-c-p{grid-column:2;grid-row:1;text-align:right!important}
+  .gp-row .gp-c-b{grid-column:1;grid-row:2;text-align:left!important}
+  .gp-row .gp-c-e{grid-column:2;grid-row:2;text-align:right!important}
+  .gp-srow{grid-template-columns:minmax(0,1fr) auto;row-gap:4px;padding:14px 0}
+  .gp-srow .gp-c-t{grid-column:1 / -1}
+  .gp-mrow{grid-template-columns:1fr;gap:4px}
+  .gp-lab{display:inline;color:#767C74}
+}
+</style></helmet>
+<header style="max-width:1088px;margin:0 auto;padding:clamp(18px,4vw,28px) clamp(20px,5vw,24px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+<a href="White Forest 15.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.4vw,20px);letter-spacing:.24em;text-decoration:none;color:#1E2623;white-space:nowrap">WHITE FOREST</a>
+<a href="White Forest 15.dc.html" style="font-size:14px;color:#4A514C;text-decoration:none;white-space:nowrap;padding:10px 0">← Zurück</a>
+</header>
+
+<main style="max-width:760px;margin:0 auto;padding:clamp(24px,6vw,48px) clamp(20px,5vw,24px) clamp(64px,12vw,96px)">
+<p style="font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#767C74;margin-bottom:16px">Methodik</p>
+<h1 style="font-size:clamp(32px,8.5vw,56px);line-height:1.08;margin-bottom:18px;text-wrap:balance">Grundlagen der Prognose</h1>
+<p style="font-size:clamp(16px,4.2vw,18px);line-height:1.6;color:#4A514C;margin-bottom:clamp(36px,8vw,56px)">Wie die dargestellte Wertentwicklung der Digitalen Stiftung zustande kommt — Ausgangspunkt, Annahmen und Rechenbasis.</p>
+
+<section style="padding:clamp(24px,6vw,32px) 0;border-top:1px solid rgba(30,38,35,.14)">
+<h2 style="font-size:clamp(24px,6vw,28px);line-height:1.2;margin-bottom:14px">Ausgangspunkt</h2>
+<p style="font-size:16px;line-height:1.7;color:#4A514C">Die Prognose startet beim aktuellen Portfoliowert von rund 270.300 € (Stand November 2026) und reicht zehn Jahre bis Ende 2036.</p>
+</section>
+
+<section style="padding:clamp(24px,6vw,32px) 0;border-top:1px solid rgba(30,38,35,.14)">
+<h2 style="font-size:clamp(24px,6vw,28px);line-height:1.2;margin-bottom:18px">Aufteilung des Portfolios</h2>
+<div style="margin-bottom:18px">
+<div class="gp-row gp-head" style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#767C74;padding-top:0;border-bottom:1px solid rgba(30,38,35,.22)">
+<span>Asset</span><span style="text-align:right">Anteil</span><span style="text-align:right">Betrag (bei 100.000 €)</span><span style="text-align:right">Einstieg</span>
+</div>
+<sc-for list="{{ alloc }}" as="r" hint-placeholder-count="10">
+<div class="gp-row">
+<span class="gp-c-a" style="font-size:15px;font-weight:500">{{ r.a }}</span>
+<span class="gp-c-p" style="text-align:right;font-family:'IBM Plex Mono',monospace;font-size:14px">{{ r.p }}</span>
+<span class="gp-c-b" style="text-align:right;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#4A514C">{{ r.b }}</span>
+<span class="gp-c-e" style="text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#767C74"><span class="gp-lab">Einstieg </span>{{ r.e }}</span>
+</div>
+</sc-for>
+</div>
+<p style="font-size:16px;line-height:1.7;color:#4A514C">Bis zum jeweiligen Einstieg wurde das Kapital als Cash gehalten. Seit Januar 2025 ist das Portfolio vollständig investiert.</p>
+</section>
+
+<section style="padding:clamp(24px,6vw,32px) 0;border-top:1px solid rgba(30,38,35,.14)">
+<h2 style="font-size:clamp(24px,6vw,28px);line-height:1.2;margin-bottom:14px">Methode</h2>
+<p style="font-size:16px;line-height:1.7;color:#4A514C;margin-bottom:18px">Die Prognose schreibt nicht einfach die vergangenen Renditen fort. Für jedes Asset wird einzeln abgeleitet, was seine Wertentwicklung langfristig antreibt:</p>
+<div style="display:flex;flex-direction:column;margin-bottom:18px">
+<sc-for list="{{ method }}" as="m" hint-placeholder-count="4">
+<div class="gp-mrow"><span style="font-size:15px;font-weight:500">{{ m.k }}</span><span style="font-size:15px;line-height:1.6;color:#4A514C">{{ m.v }}</span></div>
+</sc-for>
+</div>
+<p style="font-size:16px;line-height:1.7;color:#4A514C">Aus diesen Einzelannahmen ergibt sich die Gesamtrendite des Portfolios.</p>
+</section>
+
+<section style="padding:clamp(24px,6vw,32px) 0;border-top:1px solid rgba(30,38,35,.14)">
+<h2 style="font-size:clamp(24px,6vw,28px);line-height:1.2;margin-bottom:14px">Szenario</h2>
+<p style="font-size:16px;line-height:1.7;color:#4A514C;margin-bottom:18px">Die Grafik zeigt das optimistische Szenario. Es geht davon aus, dass sich die wesentlichen Wachstumstreiber der einzelnen Assets positiv entwickeln:</p>
+<div style="margin-bottom:24px">
+<div class="gp-srow gp-head" style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#767C74;padding-top:0;border-bottom:1px solid rgba(30,38,35,.22)">
+<span>Asset</span><span style="text-align:right">Annahme p.a.</span><span>Treiber</span>
+</div>
+<sc-for list="{{ scen }}" as="s" hint-placeholder-count="9">
+<div class="gp-srow">
+<span style="font-size:15px;font-weight:500">{{ s.a }}</span>
+<span style="text-align:right;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#8C7240;white-space:nowrap">{{ s.p }}</span>
+<span class="gp-c-t" style="font-size:15px;color:#4A514C;line-height:1.5">{{ s.t }}</span>
+</div>
+</sc-for>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
+<div style="background:#FFFFFF;border:1px solid rgba(30,38,35,.12);border-radius:10px;padding:clamp(18px,5vw,22px) clamp(20px,5vw,24px)"><p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#767C74;margin-bottom:10px">Ø Rendite Portfolio</p><p style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,9vw,40px);line-height:1">≈ 14,5 % p.a.</p></div>
+<div style="background:#FFFFFF;border:1px solid rgba(30,38,35,.12);border-radius:10px;padding:clamp(18px,5vw,22px) clamp(20px,5vw,24px)"><p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#767C74;margin-bottom:10px">Korridor</p><p style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,9vw,40px);line-height:1">11,5–17,5 %</p></div>
+</div>
+</section>
+
+<section style="padding:clamp(24px,6vw,32px) 0;border-top:1px solid rgba(30,38,35,.14)">
+<h2 style="font-size:clamp(24px,6vw,28px);line-height:1.2;margin-bottom:14px">Kursverlauf</h2>
+<p style="font-size:16px;line-height:1.7;color:#4A514C">Märkte entwickeln sich nicht gleichmäßig. Deshalb zeigt die Prognose einen Verlauf mit Auf- und Abwärtsphasen, darunter auch einzelne Verlustjahre. Die einzelnen Schwankungen sind beispielhaft gewählt. Der Durchschnitt von 14,5 % pro Jahr und der Zielwert 2036 ergeben sich aus den Annahmen oben.</p>
+</section>
+
+<section style="padding:clamp(24px,6vw,32px) 0;border-top:1px solid rgba(30,38,35,.14)">
+<h2 style="font-size:clamp(24px,6vw,28px);line-height:1.2;margin-bottom:14px">Vergleich mit dem MSCI World</h2>
+<p style="font-size:16px;line-height:1.7;color:#4A514C">Zum Vergleich ist der MSCI World dargestellt, also ein breit gestreuter Index aus rund 1.400 Unternehmen aus Industrieländern. Im Rückblick wurde unterstellt, dass 100.000 € Anfang 2016 vollständig in den Index investiert wurden. In der Prognose rechnet das optimistische Szenario für den MSCI World mit rund 8,5 % pro Jahr.</p>
+</section>
+
+<section style="padding:clamp(24px,6vw,32px) 0;border-top:1px solid rgba(30,38,35,.14)">
+<h2 style="font-size:clamp(24px,6vw,28px);line-height:1.2;margin-bottom:18px">Rechenbasis</h2>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ basis }}" as="b" hint-placeholder-count="4">
+<div style="display:flex;gap:14px;align-items:baseline"><span style="width:6px;height:6px;flex-shrink:0;border-radius:50%;background:#B99A5B;transform:translateY(-2px)"></span><span style="font-size:16px;line-height:1.6;color:#4A514C">{{ b }}</span></div>
+</sc-for>
+</div>
+</section>
+
+<p style="margin-top:36px;padding-top:24px;border-top:1px solid rgba(30,38,35,.14);font-size:13px;line-height:1.6;color:#767C74">Historische Werte sind kein Versprechen künftiger Rendite. Die Prognose ist eine modellhafte Annahme und keine Anlage-, Rechts- oder Steuerberatung.</p>
+
+<a href="White Forest 15.dc.html" style="display:inline-flex;align-items:center;min-height:44px;margin-top:24px;font-size:14px;font-weight:500;color:#1E2623;text-decoration:none">← Zurück zur Startseite</a>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      alloc: [
+        ['Bitcoin','24 %','24.000 €','Jan. 2022'],['Gold','24 %','24.000 €','Jan. 2016'],['US-Dollar','10 %','10.000 €','Jan. 2016'],
+        ['S&P 500','9 %','9.000 €','Jan. 2016'],['Tesla','7,5 %','7.500 €','Jan. 2022'],['Alphabet','7 %','7.000 €','Jan. 2016'],
+        ['HYPE','6 %','6.000 €','Jan. 2025'],['Silber','6 %','6.000 €','Jan. 2016'],['Nvidia','6 %','6.000 €','Jan. 2025'],['Cash','0,5 %','500 €','–']
+      ].map(([a,p,b,e]) => ({a,p,b,e})),
+      method: [
+        ['Aktien und Indizes','Gewinnwachstum, Bewertung und Marktposition'],
+        ['Edelmetalle','Realzinsen, Notenbankkäufe, Inflation und Nachfrage aus der Industrie'],
+        ['Bitcoin','Wie stark er sich als Wertspeicher verbreitet und welcher Anteil am Markt für Wertaufbewahrung realistisch ist'],
+        ['HYPE','Gebühreneinnahmen der Plattform, Token-Rückkäufe und der Wettbewerb unter Handelsplattformen']
+      ].map(([k,v]) => ({k,v})),
+      scen: [
+        ['Bitcoin','+22 %','Breite Akzeptanz als „digitales Gold“'],['HYPE','+20 %','Hyperliquid etabliert sich als führende Derivate-Plattform'],
+        ['Alphabet','+15 %','Wachstum in KI, Cloud und autonomem Fahren'],['Nvidia','+15 %','Anhaltende Investitionen in KI-Infrastruktur'],
+        ['Tesla','+15 %','Erfolgreiche Skalierung von Robotaxi und Robotik'],['S&P 500','+9 %','Produktivitätsgewinne durch KI, stabile Bewertungen'],
+        ['Silber','+9 %','Steigende Nachfrage aus Industrie und Solarbranche'],['Gold','+7 %','Anhaltende Notenbankkäufe, erhöhte Inflation'],
+        ['US-Dollar','±0 %','Stabiler Wechselkurs zum Euro']
+      ].map(([a,p,t]) => ({a,p,t})),
+      basis: [
+        'Alle Werte sind in Euro angegeben.',
+        'Gerechnet wird mit reinen Kursveränderungen, ohne Dividenden.',
+        'Nicht berücksichtigt sind Gebühren, Steuern und Inflation.',
+        'Die Prozentangaben beziehen sich auf das ursprüngliche Startkapital von 100.000 € (1. Januar 2016).'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

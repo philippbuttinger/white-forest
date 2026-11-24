@@ -1,0 +1,66 @@
+/* White Forest — Color system
+   Inspired by private banking, Scandinavian minimalism, modern luxury.
+   Deep Forest Green, Off White, Sage Green, subtle antique gold. */
+
+:root {
+  /* — Forest greens (primary dark family) — */
+  --wf-forest-900: #141A17; /* deepest ink-green */
+  --wf-forest-800: #1E2623; /* Deep Forest Green — primary brand */
+  --wf-forest-700: #2A332F;
+  --wf-forest-600: #3A453F;
+  --wf-forest-500: #4E5A53;
+
+  /* — Sage greens (muted natural accent) — */
+  --wf-sage-600: #7E8A76;
+  --wf-sage-500: #A3AE9B; /* Sage Green — brand accent */
+  --wf-sage-400: #BAC3B3;
+  --wf-sage-300: #D2D8CC;
+  --wf-sage-200: #E4E7DF;
+
+  /* — Warm ivory / off-white (light family) — */
+  --wf-paper:     #FBFAF7; /* lightest — warm paper */
+  --wf-ivory:     #F3F1EA; /* warm ivory */
+  --wf-off-white: #E7E8E6; /* Off White — brand light */
+  --wf-mist:      #DCDDD8; /* soft grey-green tint */
+
+  /* — Antique gold (subtle metallic accent, used sparingly) — */
+  --wf-gold-600: #9E8248;
+  --wf-gold-500: #B99A5B; /* antique gold */
+  --wf-gold-400: #CBB07B;
+
+  /* — Functional neutrals derived from forest, never pure grey — */
+  --wf-neutral-900: #1C201E;
+  --wf-neutral-700: #4A514C;
+  --wf-neutral-500: #767C74;
+  --wf-neutral-300: #B4B8B0;
+  --wf-neutral-100: #EDEDE9;
+
+  /* — Semantic status (muted, discreet — never loud) — */
+  --wf-positive: #5F7A5A;
+  --wf-attention: #B99A5B;
+  --wf-critical: #8C4A3F;
+
+  /* ————— Semantic aliases (use these in components) ————— */
+  --surface-base:    var(--wf-paper);     /* default page background */
+  --surface-ivory:   var(--wf-ivory);     /* warm editorial background */
+  --surface-raised:  #FFFFFF;             /* cards on paper */
+  --surface-sunken:  var(--wf-off-white); /* wells, insets */
+  --surface-inverse: var(--wf-forest-800);/* dark sections */
+  --surface-inverse-deep: var(--wf-forest-900);
+
+  --text-primary:   var(--wf-forest-800);
+  --text-secondary: var(--wf-neutral-700);
+  --text-muted:     var(--wf-neutral-500);
+  --text-inverse:   var(--wf-off-white);
+  --text-inverse-muted: var(--wf-sage-400);
+  --text-accent:    var(--wf-gold-600);
+
+  --border-subtle: rgba(30, 38, 35, 0.10);
+  --border-strong: rgba(30, 38, 35, 0.22);
+  --border-inverse: rgba(231, 232, 230, 0.16);
+
+  --accent-gold: var(--wf-gold-500);
+  --accent-sage: var(--wf-sage-500);
+
+  --focus-ring: rgba(185, 154, 91, 0.55);
+}
